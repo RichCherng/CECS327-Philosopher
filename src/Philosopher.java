@@ -9,20 +9,20 @@ public class Philosopher extends Thread {
 	private int timeEated[];
 	private int NUM_PHILS;
 	private int id;
-	private final int TURNS = 20;
-	private long waitTimes = 0;
+	private final int TURNS 	= 20;
+	private long waitTimes 		= 0;
 	private long executionTimes = 0;
 	private CopyOnWriteArrayList<Philosopher> waiting;
 	private int count_stall;
 	boolean ableToEat;
 
 	public Philosopher(Lock l, Condition p[], int s[], int num, CopyOnWriteArrayList<Philosopher> arr, int[] eat) {
-		lock = l;
-		phil = p;
-		states = s;
-		NUM_PHILS = num;
-		waiting = arr;
-		timeEated = eat;
+		lock 		= l;
+		phil 		= p;
+		states 		= s;
+		NUM_PHILS 	= num;
+		waiting 	= arr;
+		timeEated 	= eat;
 		count_stall = 0;
 	}
 
@@ -93,9 +93,7 @@ public class Philosopher extends Thread {
 		waitTimes += System.nanoTime() - time;
 		try {
 			states[id] = THINKING;
-			// will check the queue to see which thread can start anytime and
-			// which thread stops eating goes at the front of the queue
-			// to give priority to the threads that has waited longer
+
 			if (!waiting.isEmpty()) {
 				for (int i = 0; i < waiting.size(); i++) {
 					Philosopher p = waiting.get(i);

@@ -8,7 +8,7 @@ import java.util.concurrent.locks.ReentrantLock;
 public class Main{
 
 	private static int WAITING = 0, EATING = 1, THINKING = 2;
-	private static final int NUM_PHILS 	= 20;
+	private static final int NUM_PHILS 	= 100;
 	private static Condition[] phil		= new Condition[NUM_PHILS];
 	private static int[] states 		= new int[NUM_PHILS];
 	private static Lock lock 			= new ReentrantLock();
